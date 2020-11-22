@@ -23,11 +23,13 @@ function App() {
 
         // Use web3 to get the user's accounts.
         const accounts = await web3.eth.getAccounts();
-
         // Get the contract instance.
         const networkId: string = await web3.eth.net.getId();
-        // @ts-ignore
-        const deployedNetwork = ElectionContract.networks[networkId];
+        console.log(accounts, networkId);
+        const deployedNetwork =
+          ElectionContract.networks[
+            networkId as keyof typeof ElectionContract.networks
+          ];
         const instance = new web3.eth.Contract(
           ElectionContract.abi,
           deployedNetwork && deployedNetwork.address
