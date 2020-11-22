@@ -3,8 +3,6 @@ import React from "react";
 import ElectionContract from "./contracts/Election.json";
 import getWeb3 from "./getWeb3";
 
-import logo from "./logo.svg";
-
 import "./App.css";
 
 function App() {
@@ -24,12 +22,9 @@ function App() {
         // Use web3 to get the user's accounts.
         const accounts = await web3.eth.getAccounts();
         // Get the contract instance.
-        const networkId: string = await web3.eth.net.getId();
+        const networkId: keyof typeof ElectionContract.networks = await web3.eth.net.getId();
         console.log(accounts, networkId);
-        const deployedNetwork =
-          ElectionContract.networks[
-            networkId as keyof typeof ElectionContract.networks
-          ];
+        const deployedNetwork = ElectionContract.networks[networkId];
         const instance = new web3.eth.Contract(
           ElectionContract.abi,
           deployedNetwork && deployedNetwork.address
