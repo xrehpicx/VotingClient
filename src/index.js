@@ -4,11 +4,12 @@ import './index.css';
 import App from './App.jsx';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { GlobalContextProvider } from './GlobalContext'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <GlobalContextProvider>
     <App />
-  </React.StrictMode>,
+  </GlobalContextProvider>,
   document.getElementById('root')
 );
 
