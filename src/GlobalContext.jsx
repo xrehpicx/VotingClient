@@ -4,14 +4,16 @@ import VotingSystem from "./votingstuff";
 export const GlobalContext = createContext();
 
 export function GlobalContextProvider({ children }) {
-  const [votingController, setVotingController] = useState();
+  const [votingController, setVotingController] = useState(null);
 
   useEffect(() => {
     VotingSystem().then(setVotingController);
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ ...votingController }}>
+    <GlobalContext.Provider
+      value={votingController ? { ...votingController } : false}
+    >
       {children}
     </GlobalContext.Provider>
   );
