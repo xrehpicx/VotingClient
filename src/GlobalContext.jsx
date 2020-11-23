@@ -7,7 +7,9 @@ export function GlobalContextProvider({ children }) {
   const [votingController, setVotingController] = useState(null);
 
   useEffect(() => {
-    VotingSystem().then(setVotingController);
+    VotingSystem().then((controller) => {
+      setVotingController(controller);
+    });
   }, []);
 
   return (

@@ -1,0 +1,130 @@
+.home-page {
+    header {
+        padding: 20px;
+        padding-bottom: 0;
+    }
+}
+
+.has-voted {
+    padding: 20px;
+    padding-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid red;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p {
+        margin-bottom: 10px;
+        margin-top: 8px;
+    }
+}
+
+.confirmation {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+    }
+}
+
+.candidate-name-dialog {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.candidate-party-dialog {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.vote-warning {
+
+    padding-top: 10px;
+    color: red;
+
+    p {
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.voting-actions {
+    margin-top: 20px;
+    display: flex;
+}
+
+.voting-action-button {}
+
+
+#vote-btn {
+    background-color: rgb(255, 159, 159);
+    font-size: 1.5rem;
+    padding: 30px 40px;
+}
+
+#cancel-voting-btn {
+    background-color: rgb(103, 255, 103);
+    font-size: 1.5rem;
+    padding: 30px 40px;
+}
+
+.candidates-section {
+    padding: 20px;
+
+    .candidates {
+        margin-top: 10px;
+    }
+
+
+    .candidate {
+        padding: 20px;
+        border-radius: 4px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 500;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            padding: 10px;
+        }
+
+        .left>.votes {
+            display: flex;
+            align-items: center;
+
+            h3 {
+                font-size: 3rem;
+            }
+
+            span {
+                margin-left: 6px;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    }
+}

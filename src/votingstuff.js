@@ -74,7 +74,11 @@ export default async function vs() {
         console.log('vote event set')
 
         async function vote(candidateId) {
-            return await instance.vote(candidateId, { from: account });
+            try {
+                return await instance.vote(candidateId, { from: account });
+            } catch (error) {
+                return false
+            }
         }
         async function listCandidates() {
             const candidates = []
@@ -83,14 +87,16 @@ export default async function vs() {
                 const candidate = await instance.candidates(i);
                 const candidateId = candidate[0].toNumber();
                 const candidateName = candidate[1];
-                const candidateVotes = candidate[2].toNumber();
-                candidates.push({ id: candidateId, name: candidateName, votes: candidateVotes })
+                const partyName = candidate[2];
+                const candidateVotes = candidate[3].toNumber();
+                const color = candidate[4];
+                const logo = candidate[5];
+                candidates.push({ id: candidateId, party: partyName, name: candidateName, votes: candidateVotes, color, logo })
             }
             return candidates
         }
-        async function hasVoted() {
-            return await instance.voters(account)
-        }
+        const hasVoted = await instance.voters(account);
+
 
         return { instance, account, vote, listCandidates, hasVoted }
     } catch (error) {

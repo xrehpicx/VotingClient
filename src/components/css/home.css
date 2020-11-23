@@ -1,1 +1,160 @@
-/* No CSS *//*# sourceMappingURL=home.css.map */
+.home-page header {
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.has-voted {
+  padding: 20px;
+  padding-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid red;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.has-voted h3 {
+  font-size: 2rem;
+}
+
+.has-voted p {
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+
+.confirmation {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.confirmation .logo {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+.candidate-name-dialog {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.candidate-party-dialog {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.vote-warning {
+  padding-top: 10px;
+  color: red;
+}
+
+.vote-warning p {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.voting-actions {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#vote-btn {
+  background-color: #ff9f9f;
+  font-size: 1.5rem;
+  padding: 30px 40px;
+}
+
+#cancel-voting-btn {
+  background-color: #67ff67;
+  font-size: 1.5rem;
+  padding: 30px 40px;
+}
+
+.candidates-section {
+  padding: 20px;
+}
+
+.candidates-section .candidates {
+  margin-top: 10px;
+}
+
+.candidates-section .candidate {
+  padding: 20px;
+  border-radius: 4px;
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.candidates-section .candidate h2 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.candidates-section .candidate .logo {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+}
+
+.candidates-section .candidate .left > .votes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.candidates-section .candidate .left > .votes h3 {
+  font-size: 3rem;
+}
+
+.candidates-section .candidate .left > .votes span {
+  margin-left: 6px;
+}
+
+.candidates-section .candidate .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+/*# sourceMappingURL=home.css.map */

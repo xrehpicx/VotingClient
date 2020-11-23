@@ -5,7 +5,7 @@ import "./css/loading.css";
 export default function Loading() {
   const [web3loading, setWeb3loading] = useState(null);
   const [contract, setContract] = useState(null);
-  const [loadingMessage, setLoadingMessage] = useState("loading...");
+  const [loadingMessage, setLoadingMessage] = useState([]);
   useEffect(() => {
     const onweb3loading = ({ detail }) => {
       setWeb3loading(detail);
@@ -25,20 +25,26 @@ export default function Loading() {
   useEffect(() => {
     if (contract) {
       const state = contract.state;
-      if (state === 0) setLoadingMessage("obtaining contract");
+      if (state === 0) setLoadingMessage((ms) => [...ms, "obtaining contract"]);
       else if (state === 1)
-        setLoadingMessage("connected with Election Contract");
-      else if (state === 2) setLoadingMessage("obtaining your account details");
+        setLoadingMessage((ms) => [...ms, "connected with Election Contract"]);
+      else if (state === 2)
+        setLoadingMessage((ms) => [...ms, "obtaining your account details"]);
       else if (state === 3)
-        setLoadingMessage("connected using account: " + contract.account);
+        setLoadingMessage((ms) => [
+          ...ms,
+          "connected using account: " + contract.account,
+        ]);
     }
   }, [contract]);
   useEffect(() => {
     if (web3loading) {
       console.log(web3loading);
       const state = web3loading.state;
-      if (state === 0) setLoadingMessage("connecting to ethernum");
-      else if (state === 1) setLoadingMessage("connected to ethernum");
+      if (state === 0)
+        setLoadingMessage((ms) => [...ms, "connecting to ethernum"]);
+      else if (state === 1)
+        setLoadingMessage((ms) => [...ms, "connected to ethernum"]);
     }
   }, [web3loading]);
 
@@ -46,7 +52,10 @@ export default function Loading() {
     <div className="loading-page">
       <h1>Vote</h1>
       <LinearProgress />
-      <p>{loadingMessage}</p>
+
+      {loadingMessage.map((mess, i) => (
+        <p key={i}>{mess}</p>
+      ))}
     </div>
   );
 }
