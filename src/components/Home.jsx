@@ -11,20 +11,29 @@ export default function Home() {
   const [hasVoted, setHasVoted] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    document.addEventListener("vote", (e) => {
-      console.log(e.detail);
-    });
-  }, []);
+    if (voteController) {
+      const onvote = (e) => {
+        setLoading(true);
+        voteController.listCandidates().then((cans) => {
+          setCandidates(cans);
+          setLoading(false);
+        });
+      };
+      document.addEventListener("vote", onvote);
+      return () => document.removeEventListener("vote", onvote);
+    }
+  }, [voteController]);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setLoading(true);
       voteController.listCandidates().then((cans) => {
         setCandidates(cans);
         setLoading(false);
       });
-    }, 5000);
+    }, 10000);
     setHasVoted(voteController.hasVoted);
+    return () => clearInterval(interval);
   }, [voteController]);
 
   return (
